@@ -25,3 +25,4 @@ class Confetti extends Particle {
 
 const conf = new Confetti(2, 4);
 console.log(conf);
+console.log(conf.update())
