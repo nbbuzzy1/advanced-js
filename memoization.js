@@ -1,15 +1,30 @@
-function memo(func) {
-	var cache = {};
-	return function () {
-		var key = JSON.stringify(arguments);
-		if (cache[key]) {
-			console.log(cache)
-			return cache[key];
+//Fibonacci Function
+const fib = n => {
+	if (n < 2) {
+		return 1;
+	} else {
+		//We'll console.log a loader every time we have to recurse
+		console.log("loading...");
+		return fib(n - 2) + fib(n - 1);
+	}
+};
+
+//Memoize Function
+const memoize = func => {
+	const results = {};
+
+	return (...args) => {
+		console.log(args);
+		const argsKey = JSON.stringify(args);
+
+		if (!results[argsKey]) {
+			results[argsKey] = func(...args);
 		}
-		else {
-			val = func.apply(null, arguments);
-			cache[key] = val;
-			return val;
-		}
+
+		return results[argsKey];
 	}
 }
+
+const fibMemo = memoize(fib);
+console.log(fibMemo(6))
+console.log(fibMemo(6))
