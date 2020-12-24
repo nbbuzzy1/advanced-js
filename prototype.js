@@ -1,4 +1,4 @@
-const car = function (make) {
+const Car = function (make) {
 	this.make = make;
 	function test(a) {
 		return a;
@@ -9,7 +9,7 @@ const car = function (make) {
 	}
 }
 
-const mustang = new car('mustang');
+const mustang = new Car('mustang');
 console.log(mustang);
 // console.log(mustang.test('asdf')) //this returns a TypeError
 console.log(mustang.test2('asdf'))
