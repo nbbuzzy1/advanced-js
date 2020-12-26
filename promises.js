@@ -4,12 +4,14 @@ const p = new Promise((resolve, reject) => {
 	setTimeout(() => resolve('Success'), 7)
 });
 
-// p.then((val) => console.log(val));
-
 const q = new Promise((res, rej) => setTimeout(() => res('hello'), 5));
 
 //promise chaining
-// p.then((val) => q).then((mes) => console.log(mes));
+p.then((val) => q).then((mes) => console.log(mes));
+//Also this
+p.then((val) => {
+	return q;
+}).then((mes) => console.log('this worked', mes));
 
 //promise.all
 Promise.all([p, q]).then((results) => console.log(results)).catch((failed) => console.log(failed));
