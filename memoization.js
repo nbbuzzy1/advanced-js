@@ -11,17 +11,17 @@ const fib = n => {
 
 //Memoize Function
 const memoize = func => {
-	const results = {};
+	const cache = {};
 
 	return (...args) => {
 		console.log(args);
-		const argsKey = JSON.stringify(args);
+		const cache = JSON.stringify(args);
 
-		if (!results[argsKey]) {
-			results[argsKey] = func(...args);
+		if (!cache[argsKey]) {
+			cache[argsKey] = func(...args);
 		}
 
-		return results[argsKey];
+		return cache[argsKey];
 	}
 }
 
