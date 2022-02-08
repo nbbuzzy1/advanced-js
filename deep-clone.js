@@ -1,5 +1,5 @@
 const originalObj = { a: 'b', deep: { a: 'b' } };
-const shallowCopy = { ...originalObj };
+// const shallowCopy = { ...originalObj };
 // shallowCopy.a = 'c';
 // shallowCopy.deep.a = 'c';
 // console.log(originalObj.a); //b
@@ -22,9 +22,8 @@ const deepCloneObject = (obj) => {
 
 const deepClone = deepCloneObject(originalObj);
 
-
-console.log(deepClone);
 deepClone.a = 'c';
 deepClone.deep.a = 'c';
+console.log(deepClone);
 console.log(originalObj.a); //b
-console.log(originalObj.deep.a); //c
+console.log(originalObj.deep.a); //b

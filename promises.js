@@ -15,6 +15,7 @@ p.then((val) => {
 
 //promise.all
 Promise.all([p, q]).then((results) => console.log(results)).catch((failed) => console.log(failed));
+
 Promise.race([p, q]).then((fastest) => console.log(fastest));
 
 Promise.allSettled([
@@ -30,3 +31,6 @@ Promise.allSettled([
 //   {status: "fulfilled", value: 99},
 //   {status: "rejected",  reason: Error: an error}
 // ]
+
+// If both of these are reject, then the catch is triggered
+Promise.race([Promise.reject('error'), Promise.resolve('any resolve')]).then((res) => console.log('any result', res)).catch((e) => console.log('catch', e))

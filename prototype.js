@@ -9,6 +9,15 @@ const Car = function (make) {
 	}
 }
 
+class Test { 
+	constructor(val) { 
+		this.val = val 
+	} 
+	methodTest() { 
+		console.log('I think this worked') 
+	} 
+}
+
 const mustang = new Car('mustang');
 console.log(mustang);
 // console.log(mustang.test('asdf')) //this returns a TypeError
