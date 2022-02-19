@@ -1,12 +1,12 @@
 const debouce = (func) => {
   let timeout;
 
-  return (...args) => {
+  return function(...args) {
     if (timeout) {
       clearTimeout(timeout);
     }
 
-    timeout = setTimeout(() => func(...args), 500);
+    timeout = setTimeout(() => func.call(this, ...args), 500);
   }
 }
 

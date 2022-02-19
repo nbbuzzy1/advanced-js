@@ -37,3 +37,37 @@ const timeoutManagerSampleTimeout = setTimeout(() => console.log('this is from t
 
 const timeoutManager = new TimeoutManagement();
 timeoutManager.addTimeout(timeoutTwo);
+
+
+////
+class TimeoutManager {
+  constructor() {
+    this.timeouts = new Set();
+  }
+
+  addTimeout(callback, args, duration = 2000) {
+    const timeoutId = setTimeout(() => {
+      callback(...args);
+      this.timeouts.delete(timeoutId);
+    }, duration);
+
+    this.timeouts.add(timeoutId);
+    return timeoutId;
+  }
+
+  removeTimeout(timeoutId) {
+    if (!this.timeouts.has(timeoutId)) return;
+
+    clearTimeout(timeoutId);
+    this.timeouts.delete(timeoutId);
+  }
+}
+
+const timeoutManager = new TimeoutManager();
+const callback = (a, b) => console.log('callback', a, b);
+const id = timeoutManager.addTimeout(callback, [2, 3]);
+const id2 = timeoutManager.addTimeout(callback, [4, 5]);
+console.log(timeoutManager.timeouts.size);
+timeoutManager.removeTimeout(id);
+console.log(timeoutManager.timeouts.size);
+setTimeout(() => console.log(timeoutManager.size), 4000);

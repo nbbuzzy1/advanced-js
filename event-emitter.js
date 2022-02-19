@@ -10,7 +10,6 @@ class EventEmitter {
     const event = new Event(eventName);
     const eventObj = {
       element,
-      callback,
       event,
     }
 
@@ -25,6 +24,16 @@ class EventEmitter {
     
     const { element, event } = this.storedEvents.get(eventName);
     element.dispatchEvent(event)
+  }
+
+  deleteEvent(eventName) {
+    const event = this.storedEvents.get(eventName);
+    if (!event) return;
+    // Remove event listener
+    event.element.removeEventListener(eventName);
+
+    // Remove event from map
+    this.storedEvents.delete(eventName);
   }
 }
 

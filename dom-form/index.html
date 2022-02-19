@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello</title>
+  </head>
+  <body>
+    <div>
+      <h1>DOM Form</h1>
+      <form>
+        <div>
+          <label for="first-name">First Name:</label>
+          <input name="first-name" id="first-name" placeholder="First Name" />
+        </div>
+        <div>
+          <label for="state">State:</label>
+          <select id="state" name="state">
+            <option value="ohio">Ohio</option>
+            <option value="michigan">Michigan</option>
+            <option value="colorado">Colorado</option>
+          </select>
+        </div>
+        <div>
+          <label for="description">Description:</label>
+          <textarea name="description" id="description"></textarea>
+        </div>
+        <div>
+          <label for="email">Email: </label>
+          <input id="email" name="email" type="email" required placeholder="Email" />
+        </div>
+        <button id="submit-button">Submit</button>
+      </form>
+      <hr>
+      <table>
+        <thead>
+          <tr>
+            <th>First</th>
+            <th>Second</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First body val</td>
+            <td>Second body val</td>
+          </tr>
+        </tbody>
+        <tfoot><tr><td>Table footer</td></tr></tfoot>
+      </table>
+    </div>
+    <script src="dom-form.js"></script>
+  </body>
+</html>
