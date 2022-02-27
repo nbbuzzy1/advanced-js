@@ -1,28 +1,25 @@
-class Particle {
-	constructor(x, y, square) {
-		this.x = x;
-		this.y = y;
-	}
+class Car {
+  constructor(cost) {
+    this.cost = cost;
+  }
 
-	update() {
-		this.x += 5;
-	}
+  drive() {
+    console.log('I drive');
+  }
 }
 
-class Confetti extends Particle {
-	constructor(x, y) {
-		super(x, y);
-	}
-
-	bright() {
-		return this.y;
-	}
-
-	update() {
-		return this.x + this.y;
-	}
+class Mustang extends Car {
+  constructor(cost, name) {
+    super(cost);
+    this.name = name;
+    this.cost = cost;
+  }
 }
 
-const conf = new Confetti(2, 4);
-console.log(conf);
-console.log(conf.update())
+const mustang = new Mustang(123, 'nicks car');
+console.log(mustang); // { cost: 123, name: 'nicks car' }
+
+Car.prototype.stop = function() { console.log('stopp!!!')}
+
+mustang.stop();
+console.log(mustang.__proto__ === Mustang.prototype)
