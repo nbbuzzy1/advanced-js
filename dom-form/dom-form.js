@@ -13,8 +13,6 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
 
-  // Two ways to get form data:
-  const formProps = Object.fromEntries(formData);
   for (const [key, val] of formData.entries()) {
     console.log(key, val);
   }

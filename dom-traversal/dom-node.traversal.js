@@ -12,7 +12,7 @@ const searchForNodeIterative = (targetId) => {
       return true;
     }
 
-    for (const child of node.childNodes) {
+    for (const child of node.children) {
       queue.push(child);
     }
   }
@@ -28,12 +28,12 @@ const startingNode = document.body;
 const searchTree = (node, targetId) => {
   if (node.id === targetId){
     return true;
-  }else if (node.childNodes.length){
+  }else if (node.children.length){
       let foundNode = false;
       let i = 0;
 
-      while (i < node.childNodes.length && !foundNode) {
-        const currentNode = node.childNodes[i];
+      while (i < node.children.length && !foundNode) {
+        const currentNode = node.children[i];
         console.log(currentNode);
         foundNode = searchTree(currentNode, targetId);
         i++;

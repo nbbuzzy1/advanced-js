@@ -1,4 +1,4 @@
-const testNode = document.getElementById('example');
+const testNode = document.createElement('p');
 class EventEmitter {
   constructor () {
     this.storedEvents = new Map();
@@ -40,7 +40,7 @@ class EventEmitter {
 const mockEventEmitter = new EventEmitter();
 
 mockEventEmitter.addEvent(testNode, 'test', (e) => {
-  console.log(e);
+  console.log(e, 'callback worked');
   testNode.style.backgroundColor = 'green';
 })
 

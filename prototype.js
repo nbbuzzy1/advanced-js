@@ -54,3 +54,53 @@ NewParticle.prototype.constructor = NewParticle;
 const newtest = new NewParticle();
 console.log(newtest);
 newtest.show();
+
+class Store {
+  constructor() {
+    this.books = [];
+  }
+
+  addBook(bookName) {
+    this.books.push(bookName);
+  }
+}
+
+const store = new Store();
+
+console.log(store.__proto__.hasOwnProperty('books'));
+
+Store.prototype.logBook = function(log) { console.log('logging', log) };
+
+store.logBook('hi')
+
+const testObj = { test: 'hi' };
+
+console.log(testObj.hasOwnProperty('test'));
+
+Array.prototype.sayHello = function() { console.log('hello') };
+store.books.sayHello()
+
+console.log(store.__proto__.__proto__.hasOwnProperty('books'))
+
+class Store {
+  constructor() {
+    this.books = [];
+  }
+
+  addBook(bookName) {
+    this.books.push(bookName);
+  }
+}
+
+const store = new Store();
+
+console.log(store.__proto__.hasOwnProperty('books'));
+
+Store.prototype.logBook = function(log) { console.log('logging', log) };
+
+store.logBook('hi')
+
+Array.prototype.sayHello = function() { console.log('hello') };
+store.books.sayHello()
+
+console.log([].hasOwnProperty('hi'))
