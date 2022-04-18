@@ -2,7 +2,7 @@ function curry(func) {
   // here ...args collects arguments as array (rest)
   return function curriedFunc(...args) {
     // Here we check if current args passed equals the number of args func expects
-    if(args.length >= func.length) {
+    if (args.length >= func.length) {
       // if yes, we spread args elements to pass into func (spread). This is our base case.
       return func(...args)
     } else {
